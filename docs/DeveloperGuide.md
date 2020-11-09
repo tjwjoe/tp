@@ -265,7 +265,7 @@ Each time the quiz mode is entered and ended, a `Score` object is created and ad
 
 The following activity diagram summarises how scores are incremented: 
 
-![IncrementScoreActivityDiagram](images/IncrementScoreActivityDiagram.png)
+![IncrementScoreActivityDiagram](images/IncrementScoresActivityDiagram.png)
 
 #### Design Considerations:
 
