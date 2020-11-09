@@ -75,6 +75,7 @@ public class SortCommand extends Command {
     public CommandResult execute(Model model) {
         assert model != null : "Model cannot be null!";
         if (model.getGlossary().getFlashCardList().size() == 0) {
+            logger.log(Level.INFO, "Glossary is empty!");
             return new CommandResult(MESSAGE_EMPTY_GLOSSARY);
         }
         model.setGlossary(getSortedGlossary(model));
