@@ -3,9 +3,9 @@
 skinparam arrowColor MODEL_COLOR_T4
 skinparam classBackgroundColor MODEL_COLOR_T2
 
-interface Comparable <<interface>>
+class Comparable <<interface>>
 
-abstract class PredefinedTag
+class "{abstract}\nPredefinedTag" as PredefinedTag
 
 class GenderTag {
     {static} +MESSAGE_CONSTRAINTS
