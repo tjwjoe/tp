@@ -303,7 +303,7 @@ other aspects of the program.
 
 ![SortCommandClassDiagram](images/SortCommandClassDiagram.png)
 
-The following sequence diagram briefly outlines the execution process when a user enters the command "sort english":
+The following sequence diagram briefly outlines the execution process with respect to the `Logic` component when a user enters the command "sort english":
 
 ![SortCommandSequenceDiagram](images/SortCommandSequenceDiagram.png)
 
