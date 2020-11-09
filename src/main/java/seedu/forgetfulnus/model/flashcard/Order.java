@@ -6,12 +6,12 @@ package seedu.forgetfulnus.model.flashcard;
  */
 
 public class Order implements Comparable<Order> {
+    public static final String MESSAGE_CONSTRAINTS = "Order cannot be less than one!";
+
     /**
      * Static variable to track order in which a FlashCard is added. Initialised to -1 at the start of the app, but
      * will be reassigned the moment a new FlashCard is added or deleted.
      */
-    public static final String MESSAGE_CONSTRAINTS = "Order cannot be less than one!";
-
     private static int nextOrderOfAddition = -1;
     private int value;
     public Order(int value) {
