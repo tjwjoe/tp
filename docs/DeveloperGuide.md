@@ -185,7 +185,7 @@ The proposed quiz feature for users to test their vocabulary is facilitated by `
 It implements the following operations:
 
 * `Glossary#quiz(Model)` — Starts the quizzing with the displayed flashcard list.
-* `Glossary#next(Model)` — Attempt to type the correct English definition of the German phrase on the current flashcard.
+* `Glossary#try(Model)` — Attempt to type the correct English definition of the German phrase on the current flashcard.
 * `Glossary#next(Model)` — Skips the current flashcard under test.
 * `Glossary#end(Model)` — Ends the quiz.
 
@@ -205,6 +205,7 @@ Alternatively, the user can enter `next` to execute the NextCommand on the model
 Step 4: The quiz mode will end when there is no next flashcard i.e. current flashcard is the last on the list, and the user attempts the English definition correctly with `try <attempt>` or the user skips the card with `next`. Alternatively, the quiz can be ended early at any point during the quiz when the user enters `end`, letting the program execute the EndQuizCommand on the current model. The Ui will update to show the English definitions on all the flashcards in the flashcard list.
 
 The following activity diagram outlines the process of quizzing:
+
 ![QuizActivityDiagram](images/QuizActivityDiagram.png)
 
 The following sequence diagram shows how the quiz operation works:
@@ -437,8 +438,8 @@ Priority | As a... | I want to... | So that I...
 **MSS:**
 
 1. User requests to start self-testing.
-2. ForgetfulNUS displays a german word.
-3. User inputs the corresponding english translation.
+2. ForgetfulNUS displays a German word.
+3. User inputs the corresponding English translation.
 4. ForgetfulNUS displays the results of User's answer.
 
     Steps 2-4 are repeated until there are no more words to be tested.    
@@ -446,6 +447,14 @@ Priority | As a... | I want to... | So that I...
    Use case ends.
 
 **Extensions:**
+
+- 2a. User chooses to skip the German word.
+    
+    -2a1. ForgetfulNUS displays the next German word.
+    
+- 3a. User inputs the wrong English translation.
+
+    - 3a1. ForgetfulNUS prompts the user to try again.
 
 - 4a. At any time, User chooses to stop self-testing.
 
@@ -470,6 +479,35 @@ Priority | As a... | I want to... | So that I...
     
     - 1a2. User enters another command.
     
+   Use case ends.
+   
+#### **Use case: UC6 - Self-testing with specified number of randomised Flashcards**
+
+**MSS:**
+
+1. User requests to start random self-testing with specified number of flashcards.
+2. ForgetfulNUS displays a random German word.
+3. User inputs the corresponding English translation.
+4. ForgetfulNUS displays the results of User's answer.
+
+    Steps 2-4 are repeated until the number of flashcards tested has hit the number specified by the user.    
+
+   Use case ends.
+
+**Extensions:**
+
+- 2a. User chooses to skip the German word.
+    
+    -2a1. ForgetfulNUS displays the next random German word.
+    
+- 3a. User inputs the wrong English translation.
+
+    - 3a1. ForgetfulNUS prompts the user to try again.
+
+- 4a. At any time, User chooses to stop self-testing.
+
+   - 4a1. ForgetfulNUS stops self-testing.
+
    Use case ends.
 
 ### Non-Functional Requirements
