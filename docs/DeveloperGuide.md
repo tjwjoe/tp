@@ -252,8 +252,6 @@ The following activity diagram summarises what happens when a user executes the 
 
 This feature saves scores from previous rounds of quizzing. It is facilitated by classes in the `Command`, `Model` and `Storage` components.
 
-A list of past scores is saved in a local file, which is exposed in the `Storage` interface as `Storage#getScoreFilePath()`.
-
 Scores are encapsulated in the `Model` by `Score` objects, which store scoring information that can be retrieved from the following methods:
 
 * `Score#getScore()` - Returns the number of flashcards answered correctly in the quizzing round
@@ -265,10 +263,9 @@ Each time the quiz mode is entered and ended, a `Score` object is created and ad
 * `ScoreList#addScore()`
 * `ScoreList#getScoreList()`
 
-The scores can be retrieved and viewed by entering the `scores` command. The following sequence diagram
-summarises how retrieving the scores works:
+The following activity diagram summarises how scores are incremented: 
 
-![RandomQuizSequenceDiagram](images/RandomQuizSequenceDiagram.png)
+![IncrementScoreActivityDiagram](images/IncrementScoresActivityDiagram.png)
 
 #### Design Considerations:
 

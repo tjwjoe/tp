@@ -9,6 +9,7 @@ Interface ReadOnlyGlossary <<Interface>>
 Interface Model <<Interface>>
 Interface ObservableList <<Interface>>
 Class Glossary
+Class ScoreList
 Class ReadOnlyGlossary
 Class Model
 Class ModelManager
@@ -55,6 +56,8 @@ FlashCard *--> Gender
 FlashCard *--> Order
 FlashCard *--> "*" Tag
 
+ModelManager o--> "1" ScoreList
+ScoreList *-up-> "*" UniqueScoreList
 UniqueScoreList o-left-> "*" Score
 Score *--> "1..*" FlashCard
 
