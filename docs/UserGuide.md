@@ -13,20 +13,20 @@ can get your German revision done quickly and effectively.
 1. [Quick Start](#qs)
 1. [Commonly used Commands](#cucmds)
 1. [Features](#features)
-    1. [Edit the glossary](#editing)
+    1. [Edit the Glossary](#editing)
         1. [Add a Flashcard](#add) : `add`
         1. [Edit a Flashcard](#edit) : `edit`
         1. [Delete a Flashcard](#delete) : `delete`
         1. [Clear All Flashcards](#clear) : `clear`
-    1. [Test Yourself](#test)
-        1. [Normal Test](#quiz) : `quiz`
+    1. [Quiz Yourself](#test)
+        1. [Normal Quiz](#quiz) : `quiz`
         1. [Try](#try) : `try`
         1. [Next](#next) : `next`
-        1. [End Test](#end) : `end`
-        1. [Random Test](#random) : `random`
+        1. [End Quiz](#end) : `end`
+        1. [Random Quiz](#random) : `random`
         1. [View Past Scores](#scores) `scores`
         1. [Reset Scores](#reset_scores) `reset scores`
-    1. [Navigate the glossary](#navigating)
+    1. [Navigate the Glossary](#navigating)
         1. [Find a Flashcard](#find) `find`
         1. [List All Flashcards](#list) `list`
         1. [Sort All Flashcards](#sort) `sort`
@@ -77,7 +77,7 @@ with additional details.
 
 **:information_source: Notes about the command format:**<br>
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+* Words in `UPPERCASE` are the parameters to be supplied by the user.<br>
   e.g. in `add g/<GERMAN PHRASE> e/<ENGLISH PHRASE>`, `GERMAN PHRASE` and `ENGLISH PHRASE` are parameters which can be used as `add g/Vergesslichkeit e/Forgetfulness`.
   
 * Items with `...` after them can be used multiple times including zero times.
@@ -92,8 +92,8 @@ with additional details.
 * Commands are case-insensitive e.g. `Add` or `ADD` will be accepted as `add` too.
 </div>
 
-### <a name="editing"></a>3.1. Edit the glossary
-#### <a name="add"></a>3.1.1. Add a flashcard: `add`
+### <a name="editing"></a>3.1. Edit the Glossary
+#### <a name="add"></a>3.1.1. Add a Flashcard: `add`
 
 Adds a flashcard to the glossary. You can use this to expand your glossary.
 
@@ -114,17 +114,18 @@ Format: `add g/<GERMAN PHRASE> e/<ENGLISH PHRASE> [d/<DIFFICULTY>] [s/<GENDER>] 
 </div>
 
 Example:
-* `add g/Vergesslichkeit e/forgetfulness d/hard s/f t/extra`
+* `add g/Vergesslichkeit e/forgetfulness d/hard s/f t/extra` adds a new flashcard with German phrase "Vergesslichkeit", 
+English phrase "forgetfulness", difficulty "HARD", gender "F" and tag "extra".
 
 After entering this command, your app should look like this:
 
 ![add-screenshot](images/add-screenshot.png)
 
-#### <a name="edit"></a>3.1.2. Edit a flashcard: `edit`
+#### <a name="edit"></a>3.1.2. Edit a Flashcard: `edit`
 
 Edits a flashcard in the glossary at the specified `INDEX`.
 
-Format: `edit INDEX [g/<GERMAN PHRASE>] [e/<ENGLISH PHRASE>] [d/<DIFFICULTY>] [s/<GENDER>] [t/<TAG>]...}`
+Format: `edit INDEX [g/<GERMAN PHRASE>] [e/<ENGLISH PHRASE>] [d/<DIFFICULTY>] [s/<GENDER>] [t/<TAG>]...`
 
 * Edits the flashcard at the specified `INDEX`. The index refers to the index number shown in the displayed flashcard list. The index **must be a positive integer** 1, 2, 3, ...
 * At least one of the optional fields must be provided.
@@ -134,13 +135,13 @@ Format: `edit INDEX [g/<GERMAN PHRASE>] [e/<ENGLISH PHRASE>] [d/<DIFFICULTY>] [s
     specifying any tags after it.
 
 Example:
-* `edit d/easy t/chapter3`
+* `edit 2 d/easy t/chapter3` edits the 2nd flashcard in the glossary to have the `Difficulty` EASY and the `Tag` "chapter3".
 
 After entering this command, your app should look like this:
 
 ![edit-screenshot](images/edit-screenshot.png)
 
-#### <a name="delete"></a>3.1.3. Delete a flashcard : `delete`
+#### <a name="delete"></a>3.1.3. Delete a Flashcard : `delete`
 
 Deletes the specified flashcard from the glossary permanently. You can use this command to delete flashcards you consider outdated or not relevant to your learning. 
 
@@ -167,10 +168,10 @@ After entering this command, your app should look like this:
 
 ![clear-screenshot](images/clear-screenshot.png)
 
-### <a name="test"></a>3.2. Test Yourself
-#### <a name="quiz"></a>3.2.1. Normal Test : `quiz`
+### <a name="test"></a>3.2. Quiz Yourself
+#### <a name="quiz"></a>3.2.1. Normal Quiz : `quiz`
 
-Starts a round of vocabulary testing with all the flashcards that are currently in the glossary. The English translations for every flashcard will be hidden. You can use this command to test if you remember the definition corresponding to the German phrase on the flashcards. You start a quiz on any list that is displayed in the app i.e. lists that are the results of `find` or `sort`
+Starts a round of vocabulary testing with all the flashcards that are currently in the glossary. The English translations for every flashcard will be hidden. You can use this command to test if you remember the definition corresponding to the German phrase on the flashcards. You can start a quiz on any list that is displayed in the app i.e. lists that are the results of `find` or `sort`
 commands.
 
 Format: `quiz`
@@ -184,7 +185,7 @@ Compares your attempt with the definition of the current flashcard. You can use 
 
 Format: `try <ATTEMPT>`
 
-Example: `try start`
+Example: `try start` will compare "start" with the English translation of the current phrase you are being tested on.
 
 After entering this command, your app should look like this:
 
@@ -210,11 +211,13 @@ After entering this command, your app should look like this:
 
 ![end-screenshot](images/end-screenshot.png)
 
-#### <a name="random"></a>3.2.5. Random Test : `random`
+#### <a name="random"></a>3.2.5. Random Quiz : `random`
 
 Starts a round of vocabulary testing like the previous quiz command but with the specified number of flashcards randomly selected from the existing glossary. You can use this command when you want a quick, randomised quiz where you can decide the number of questions.
 
 Format: `random <NUMBER>`
+
+* `<NUMBER>` must be a positive integer and not more than the number of flashcards currently in the glossary.
 
 Example: 
 * `random 4` starts a randomised quiz with 4 randomly selected flashcards.
@@ -223,7 +226,7 @@ After entering this command, your app should look like this:
     
 ![random-screenshot](images/random-screenshot.png)
 
-Note that screenshot might not look exactly the same on your end as flashcards are randomised.
+Note that the screenshot might not look exactly the same on your end as flashcards are randomised.
 
 #### <a name="scores"></a>3.2.6. View Past Scores : `scores`
 
@@ -265,7 +268,7 @@ After entering this command, your app should look like this:
 
 ![reset-screenshot](images/reset-screenshot.png)
 
-### <a name="navigating"></a>3.3. Navigate the glossary
+### <a name="navigating"></a>3.3. Navigate the Glossary
 
 These commands allow you to manipulate the glossary so you can find certain phrases more easily.
 
@@ -292,9 +295,10 @@ After entering this command, your app should look like this:
 
 ![list-screenshot](images/list-screenshot.png)
 
-### <a name="sort"></a>3.3.3. Sort All Flashcards : `sort`
+#### <a name="sort"></a>3.3.3. Sort All Flashcards : `sort`
 
-Sorts the all flashcards according to the way you choose. You may find this helpful for browsing the flashcards or changing the order for quiz mode.
+Sorts the all flashcards according to the way you choose. You may find this helpful for browsing the flashcards or 
+changing the order for quizzing.
 
 Format: `sort <PARAMETER>`
 
@@ -315,14 +319,12 @@ Format: `sort <PARAMETER>`
 
 * Upon adding a new phrase, it will automatically be added to the bottom
   of the glossary regardless of the current sorted order. You will have to sort 
-  the glossary again to update it with the newly added phrase. 
+  the glossary again to update the position of the new phrase. 
   
 </div>
 
-
-
 Examples:
-* `sort hardtoeasy` sorts the flashcards by their respective difficulty tags from "hard" to "easy".
+* `sort hardtoeasy` sorts the flashcards by their respective difficulty tags from HARD to EASY.
 
 After entering this command, your app should look like this:
 
@@ -363,18 +365,19 @@ in your other computer.
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add g/<GERMAN PHRASE> e/<ENGLISH PHRASE> [d/<DIFFICULTY>] [s/<GENDER>] [t/<TAGS>...]` <br> e.g., `add g/Vergesslichkeit e/Forgetfulness d/hard`
-**Delete** | `delete INDEX` <br> e.g., `delete 3`
-**Clear** | `clear`
+**Add a Flashcard** | `add g/<GERMAN PHRASE> e/<ENGLISH PHRASE> [d/<DIFFICULTY>] [s/<GENDER>] [t/<TAGS>...]` <br> e.g., `add g/Vergesslichkeit e/Forgetfulness d/hard`
+**Edit a Flashcard** | `edit INDEX [g/<GERMAN PHRASE>] [e/<ENGLISH PHRASE>] [d/<DIFFICULTY>] [s/<GENDER>] [t/<TAG>]...` <br> e.g. `edit 2 d/easy t/chapter3`
+**Delete a Flashcard** | `delete INDEX` <br> e.g. `delete 3`
+**Clear All Flashcards** | `clear`
 **Start Normal Quiz** | `quiz`
-**Start Random Quiz** | `random <NUMBER>` <br> e.g., `random 5`
-**Next phrase** | `next`
-**Try an answer** | `try <ATTEMPT>` <br> e.g., `try Tuesday`
+**Try an Answer** | `try <ATTEMPT>` <br> e.g. `try Tuesday`
+**Next Phrase** | `next`
 **End Quiz** | `end`
+**Start Random Quiz** | `random <NUMBER>` <br> e.g. `random 5`
 **View Past Scores** | `scores`
 **Reset Scores** | `reset scores`
-**Find** | `find <GERMAN PHRASE>` <br> e.g., `find Vergesslichkeit`
-**List** | `list`
-**Sort** | `sort <PARAMETER>` <br> e.g., `sort english`
+**Find a Flashcard** | `find <GERMAN PHRASE> <OPTIONAL GERMAN PHRASE 1> <OPTIONAL GERMAN PHRASE 2>...` <br> e.g. `find Vergesslichkeit`
+**List All Flashcards** | `list`
+**Sort All Flashcards** | `sort <PARAMETER>` <br> e.g. `sort english`
 **Help** | `help`
 **Exit** | `exit`

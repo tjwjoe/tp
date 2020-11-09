@@ -208,7 +208,7 @@ The following activity diagram outlines the process of quizzing:
 
 ![QuizActivityDiagram](images/QuizActivityDiagram.png)
 
-The following sequence diagram shows how the quiz operation works:
+The following sequence diagram shows how the quiz operation works with respect to the logic component:
 
 ![QuizCommandSequenceDiagram](images/QuizCommandSequenceDiagram.png)
 
